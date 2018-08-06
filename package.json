@@ -1,0 +1,19 @@
+{
+  "name": "hockey",
+  "version": "1.0.0",
+  "description": "Hockey Stats Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vuejs": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "webpack": "^4.16.5"
+  }
+}

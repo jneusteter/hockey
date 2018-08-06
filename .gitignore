@@ -2,3 +2,4 @@ public/css/
 public/js/
 db/*.db
 .vscode
+node_modules/
