@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @games.each do |game| %>
+            <tr>
+              <th><%= game.id %></th>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="add-game">
+  <div>
+    <b-btn variant="success" v-b-modal.add-game-modal>Add Game</b-btn>
+
+    <!-- Modal Component -->
+    <b-modal id="add-game-modal" title="Add Game" @ok="handleOk">
+     
+     <b-form @submit="onSubmit">
+
+      <b-form-group id="id" label="ID" label-for="id">
+        <b-form-input id="id" type="text" required placeholder="Enter Game ID">
+        </b-form-input>
+      </b-form-group>
+     </b-form>
+
+    </b-modal>
+  </div>
+</div>

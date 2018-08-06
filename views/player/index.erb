@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Jersey</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Shoots</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @players.each do |player| %>
+            <tr>
+              <td><%= player.id %></td>
+              <td><%= player.first_name %></td>
+              <td><%= player.last_name %></td>
+              <td><%= player.shoots %></td>
+            </tr>
+          <% end %>    
+        </tbody>
+      </table>
+    </div>
+    
+    
+
+    <div class="col-lg-3">
+    <h1>Add Player</h1>
+      <form action="/player/" method="post">
+        <div class="form-group">
+          <label for="id">Jersey Number</label>
+          <input type="text" class="form-control" name="id" placeholder="Enter the Jersey Number">
+        </div>
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input type="text" class="form-control" name="first_name" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" class="form-control" name="last_name" placeholder="Enter last name">
+        </div>
+        <div class="form-group">
+          <label for="shoots">Shoots</label>
+          <input type="text" class="form-control" name="shoots" placeholder="Left or Right">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
