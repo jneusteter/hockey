@@ -10,5 +10,5 @@ post '/player/' do
   player.last_name = params[:last_name]
   player.shoots = params[:shoots]
   player.save
-  redirect "/player/"
+  redirect '/player/'
 end
