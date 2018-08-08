@@ -2,7 +2,7 @@
   "name": "hockey",
   "version": "1.0.0",
   "description": "Hockey Stats Tracker",
-  "main": "",
+  "main": "index.js",
   "scripts": {
     "dev": "webpack --config webpack.config.js --mode=development",
     "watch": "npm run dev -- --watch"
@@ -11,11 +11,15 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "vuejs": "^3.0.1"
+    "qs": "^6.5.2",
+    "vue": "^2.5.17"
   },
   "devDependencies": {
     "babel": "^6.23.0",
+    "css-loader": "^1.0.0",
     "eslint": "^5.3.0",
+    "vue-loader": "^15.2.6",
+    "vue-template-compiler": "^2.5.17",
     "webpack": "^4.16.5",
     "webpack-command": "^0.4.1"
   }
