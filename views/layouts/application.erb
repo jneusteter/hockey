@@ -7,29 +7,31 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Hockey Stats</title>
 </head>
-<body>
+  <body>
+    <div id="app">
 
-  <div id=navbar>
-    <b-navbar toggleable="md" type="dark" variant="dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+        <a class="navbar-brand" href="/">Hockey</a>
+        
+        <button @click="navOpen = !navOpen" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+        <div :class="[{'in': navOpen}, 'collapse', 'navbar-collapse']" id="main-nav">
+          <ul class="navbar-nav mr-auto">
+            <% if @nav_links %>
+              <% @nav_links.each do | nav_link | %>
+                <li class="nav-item"><a class="nav-link" href="<%= nav_link[:url] %>"><%= nav_link[:name] %></a></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
 
-      <b-navbar-brand href="/">Home</b-navbar-brand>
+      <%= yield %>
 
-      <b-collapse is-nav id="nav_collapse">
-
-        <b-navbar-nav right>
-          <b-nav-item href="/game/">Game</b-nav-item>
-        </b-navbar-nav>
-
-      </b-collapse>
-
-    </b-navbar>
-  </div>
-
-  <%= yield %>
-
-  <script src="/js/bundle.js"></script>
-  
-</body>
+    </div>
+    <script src="/js/bundle.js"></script>  
+  </body>
 </html>
