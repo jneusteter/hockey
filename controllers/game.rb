@@ -18,6 +18,12 @@ get '/game/:id' do
   erb :'game/game', layout: :'layouts/application'
 end
 
+get '/game/:id/delete' do
+  game = Game.where(id: params[:id])
+  game.delete
+  'OK'
+end
+
 get '/api/games' do
   json Game.all
 end

@@ -8,10 +8,18 @@
           </tr>
         </thead>
         <tbody>
-					<tr v-for="game in games">
-						<th>{{ game.id }}</th>
-						<th>{{ game.city }}</th>
-					</tr>
+          <tr 
+            v-for="game in games" 
+            :key="game.id"
+          >
+            <td>{{ game.id }}</td>
+            <td>
+              <button
+                class="btn btn-primary"
+                @click="deleteGame(game)"
+              >Delete</button> 
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -25,14 +33,6 @@ export default {
 			games: []
 		}
 	},
-	methods: { 
-		loadGames() {
-			axios.get('/api/games')
-      .then((result) => {
-				this.games = result.data
-			})
-		}
-	},
 	created: function() {
 		this.loadGames()
 		// polling api every 30 seconds
@@ -42,6 +42,20 @@ export default {
 			}.bind(this),
 			30000
 		)
-	}
+	},
+	methods: { 
+		loadGames() {
+			axios.get('/api/games')
+				.then((res) => {
+					this.games = res.data
+				})
+		},
+		deleteGame(game) {
+			axios.get('/game/' + game.id + '/delete')
+				.then(() => {
+					this.loadGames()
+				})
+		}
+	},
 }
 </script>
