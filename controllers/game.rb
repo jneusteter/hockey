@@ -3,10 +3,15 @@ get '/game/' do
 end
 
 post '/game/' do
+  p params
   game = Game.new
   game.id = params[:id]
   game.save
-  redirect back
+  if request.xhr?
+    'OK'
+  else
+    redirect back
+  end
 end
 
 get '/game/:id' do

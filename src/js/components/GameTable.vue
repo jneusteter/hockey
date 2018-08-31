@@ -8,7 +8,10 @@
           </tr>
         </thead>
         <tbody>
-         {{games}}
+					<tr v-for="game in games">
+						<th>{{ game.id }}</th>
+						<th>{{ game.city }}</th>
+					</tr>
         </tbody>
       </table>
     </div>
@@ -17,27 +20,28 @@
 
 <script>
 export default {
-  data() {
-    return {
-      games: []
-    }
-  },
-  methods: {
-    loadGames: function () {
-      axios.get('/api/games')
-      .then((res) => {
-        this.games = this.res
-      })
-    }
-  },
-  created: function(){
-    this.loadGames();
-    // polling api every 30 seconds
-    setInterval(function () {
-      this.loadGames();
-    }.bind(this), 30000);
-  },
-
+	data() {
+		return {
+			games: []
+		}
+	},
+	methods: { 
+		loadGames() {
+			axios.get('/api/games')
+      .then((result) => {
+				this.games = result.data
+			})
+		}
+	},
+	created: function() {
+		this.loadGames()
+		// polling api every 30 seconds
+		setInterval(
+			function() {
+				this.loadGames()
+			}.bind(this),
+			30000
+		)
+	}
 }
 </script>
-

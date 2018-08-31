@@ -3,3 +3,4 @@ public/js/
 db/*.db
 .vscode
 node_modules/
+Gemfile.lock
