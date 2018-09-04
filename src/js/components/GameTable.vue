@@ -12,7 +12,7 @@
             v-for="game in games" 
             :key="game.id"
           >
-            <td>{{ game.id }}</td>
+            <td><a :href="'/game/' + game.id">{{ game.id }}</a></td>
             <td>
               <button
                 class="btn btn-primary"
